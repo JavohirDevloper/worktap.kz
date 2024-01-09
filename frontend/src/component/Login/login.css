@@ -1,0 +1,103 @@
+/* login.css */
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo_logo img {
+  width: 100px;
+  height: 100px;
+}
+
+.register_tag {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.input_label {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input_label label {
+  font-weight: bold;
+}
+
+.input_label input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.radio input {
+  margin-right: 10px;
+}
+
+.esdan_chiqdi {
+  margin-left: auto;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn1 {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn2 {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.register_link {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.register {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.register img {
+  width: 500px;
+  height: auto;
+  border-radius: 5px;
+}
