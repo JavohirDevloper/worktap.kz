@@ -1,103 +1,46 @@
-/* login.css */
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.logo_logo img {
-  width: 100px;
-  height: 100px;
-}
-
-.register_tag {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.input_label {
+.login {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.input_label label {
-  font-weight: bold;
-}
-
-.input_label input {
+  grid-template-columns: 50% 50%;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #fff;
 }
-
-.radio {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+.login-image {
+  width: 100%;
+  height: 100vh;
+  background: url("../../image/login.png");
+  background-size: cover;
+  object-fit: cover;
 }
-
-.radio input {
-  margin-right: 10px;
+.login-form {
+  margin: 0 auto;
+  margin-top: 20px;
 }
-
-.esdan_chiqdi {
-  margin-left: auto;
-  text-decoration: none;
-  color: #007bff;
+.form-inputs {
+  margin-top: 203px;
+  max-width: 509px;
 }
-
-.btns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+.inputs-info {
+  color: var(--800, #2d3748);
+  font-size: 16px;
+  font-weight: 400;
 }
-
-.btn1 {
-  margin-bottom: 10px;
-  padding: 10px 20px;
-  background-color: #007bff;
+.inputs-btn {
   color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 100px;
+  background: #04c35c;
+  width: 509px;
+  height: 50px;
+  flex-shrink: 0;
+  border: 0;
+  cursor: pointer;
 }
-
-.btn2 {
-  padding: 10px 20px;
-  background-color: #dc3545;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+.inputs-footer {
+  text-align: center;
 }
-
-.register_link {
-  text-decoration: none;
-  color: #007bff;
-}
-
-.register {
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-}
-
-.register img {
-  width: 500px;
-  height: auto;
-  border-radius: 5px;
+.inputs-register {
+  color: var(--orange, #fba457);
+  margin-top: 20px;
 }

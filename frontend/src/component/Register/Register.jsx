@@ -1,74 +1,112 @@
-import React from "react";
-import logo from "../../../public/Слой 2.png";
-import register from "../../../public/register-img.png";
+import React, { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import "./register.css";
-import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [last_name, setLast_name] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
+
+  // form function
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:4000/user/register", {
+        username,
+        last_name,
+        email,
+        password,
+        phone,
+      });
+      console.log(res);
+      navigate("/login");
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
   return (
-    <div className="flex">
-      <div className="logo">
-        <div className="logo_logo">
-          <img src={logo} alt="logo" />
+    <div className="form-container" style={{ minHeight: "90vh" }}>
+      <form onSubmit={handleSubmit}>
+        <h4 className="title">REGISTER FORM</h4>
+        <div className="mb-3">
+          <label htmlFor="name">Ваше имя</label>
+          <input
+            type="text"
+            value={last_name}
+            onChange={(e) => setLast_name(e.target.value)}
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Имя"
+            required
+            autoFocus
+          />
         </div>
-        <div className="register_tag">
-          <p>Добро пожаловать!</p>
-          <h3>Войдите в свой аккаунт</h3>
+        <div className="mb-3">
+          <label htmlFor="name">Ваше фамилия</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Фамилия"
+            required
+            autoFocus
+          />
         </div>
-        <div className="input_label">
-          <div>
-            <label htmlFor="name">Ваше имя</label>
-            <input type="text" id="name" placeholder="Имя" />
-          </div>
-          <div>
-            <label htmlFor="surname">Ваша фамилия</label>
-            <input type="text" id="surname" placeholder="Фамилия" />
-          </div>
-          <div>
-            <label htmlFor="email">E-mail</label>
-            <input type="email" id="email" placeholder="E-mail" />
-          </div>
-          <div>
-            <label htmlFor="phone">Телефон номер</label>
-            <input type="tel" id="phone" placeholder="Телефон" />
-          </div>
-          <div>
-            <label htmlFor="password">Пароль</label>
-            <input type="password" id="password" placeholder="Пароль" />
-          </div>
-          <div>
-            <label htmlFor="confirmPassword">Повторите пароль</label>
-            <input type="password" id="confirmPassword" placeholder="Пароль" />
-          </div>
+        <div className="mb-3">
+          <label htmlFor="name">E-mail</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="E-mail "
+            required
+          />
         </div>
-        <div className="radio d-flex">
-          <div>
-            <input type="radio" id="performer" name="userType" />
-            <p>Я исполнитель</p>
-          </div>
-          <div>
-            <input type="radio" id="customer" name="userType" />
-            <p>Я заказчик</p>
-          </div>
+
+        <div className="mb-3">
+          <label htmlFor="name">Телефон номер</label>
+          <input
+            type="text"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Телефон"
+            required
+          />
         </div>
-        <div className="btns">
-          <Link className="btn1" to={"/"}>
-            Войти
-          </Link>
-          <button className="btn2" type="submit">
-            Или войдите с помощью Google
-          </button>
+        <div className="mb-3">
+          <label htmlFor="name">Пароль</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Пароль"
+            required
+          />
         </div>
-        <p>
-          У Вас все еще нет аккаунта?{" "}
-          <Link className="register_link" to={"/register"}>
-            Зарегистрируйтесь бесплатно!
-          </Link>
-        </p>
-      </div>
-      <div className="register">
-        <img className="register-img" src={register} alt="register-img" />
-      </div>
+        <button type="submit" className="btn btn-primary">
+          REGISTER
+        </button>
+      </form>
     </div>
   );
 };

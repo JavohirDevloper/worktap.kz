@@ -1,0 +1,96 @@
+.freelancers-wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .freelancers__heading {
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: #222;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.48px;
+  }
+  
+  .freelancers__list {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 40px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .freelancers__item {
+    max-width: 380px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background: #F6FAFD;
+    box-shadow: 0px 16px 16px 0px #2222220a;
+  }
+  
+  .freelancers__item:last-child {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1DBF73;
+    font-size: 18px;
+    font-weight: 600;
+    background: #F2F0FE;
+    cursor: pointer;
+  }
+  
+  .freelancers__item-box {
+    display: flex;
+    margin-bottom: 30px;
+    column-gap: 30px;
+  }
+  
+  .freelancers__item__text-box::after {
+    display: block;
+    width: 150px;
+    height: 30px;
+    background-image: url("../../../public/icon/star.svg");
+    content: "";
+  }
+  
+  .freelancers__item-heading {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .freelancers__item-text {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #FBA457;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .freelancers__item-paragrph {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #222;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .freelancers__item-link {
+    display: block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    text-decoration: none;
+    color: #F6FAFD;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 100px;
+    border: 1px solid #1DBF73;
+    background: #1DBF73;
+  }

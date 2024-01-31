@@ -1,57 +1,72 @@
-import React from "react";
-import logo from "../../../public/Слой 2.png";
-import register from "../../../public/register-img.png";
-import "./login.css";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:4000/user/login", {
+        email,
+        password,
+      });
+      console.log(res);
+      if (res && res.data) {
+        toast.success(res.data && res.data.data.access_token);
+        localStorage.setItem("token", res.data.data.access_token);
+        navigate("/");
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
   return (
-    <div className="flex">
-      <div className="logo">
-        <div className="logo_logo">
-          <img src={logo} alt="logo" />
+    <div className="form-container" style={{ minHeight: "90vh" }}>
+      <form onSubmit={handleSubmit}>
+        <h4 className="title">LOGIN FORM</h4>
+        <div className="mb-3">
+          <label htmlFor="name">email</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="email"
+            
+            required
+            autoFocus
+          />
         </div>
-        <div className="register_tag">
-          <p>Добро пожаловать!</p>
-          <h3>Войдите в свой аккаунт</h3>
+        <div className="mb-3">
+          <label htmlFor="name">Пароль</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Пароль"
+            required
+          />
         </div>
-        <div className="input_label">
-          <div>
-            <label htmlFor="">E-mail</label>
-            <input type="email" name="" id="" placeholder="E-mail" />
-          </div>
-          <div>
-            <label htmlFor="">Пароль</label>
-            <input type="password" name="" id="" placeholder="Пароль" />
-          </div>
-        </div>
-        <div className="radio">
-          <input type="radio" />
-          <p>Запомнить меня</p>
-          <Link className="esdan_chiqdi" to={"/register"}>
-            Забыли пароль?
-          </Link>
-        </div>
-        <div className="btns">
-          <Link className="btn1" type="submit">
-            Войти
-          </Link>
-          <Link className="btn2" to={"/"}>
-            Или войдите с помощю Google
-          </Link>
-        </div>
-        <p>
-          У Вас все еще нет аккауна?{" "}
-          <Link className="register_link" to={"/register"}>
-            Зарегистрируйтесь бесплатно!
-          </Link>
-        </p>
-      </div>
-      <div className="register">
-        <img src={register} alt="register-img" />
-      </div>
+        <button
+          type="submit"
+          className="btn btn-primary"
+        >
+          LOGIN
+        </button>
+      </form>
     </div>
   );
 };
 
 export default Login;
-Login;
